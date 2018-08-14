@@ -7,8 +7,12 @@
 #include "Defines.h"
 
 enum color_vars {BLACK, RED , GREEN , YELLOW , BLUE , PURPLE , CYAN , WHITE};
-
-
+#define LCD_ENABLE_PIN A0 // New ↓
+#define LCD_RS_PIN A1
+#define LCD_D1 4    
+#define LCD_D2 5
+#define LCD_D3 6
+#define LCD_D4 7
 
 void initLCD(LCD_RS_PIN, LCD_ENABLE_PIN, LCD_D1, LCD_D2, LCD_D3, LCD_D4); // New
 void doBacklight();
