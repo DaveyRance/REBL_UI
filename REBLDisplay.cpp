@@ -19,14 +19,23 @@ boolean cursorActive = false;
 uint8_t cursorRow;
 uint8_t cursorCol;
 
-void initLCD(uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, uint8_t); // NEW
+void initLCD(uint8_t aRsPin, uint8_t aEnablePin, uint8_t aD1, uint8_t aD2, uint8_t aD3, uint8_t aD4) {
+
+#ifdef USING_SERIAL
+   Serial.begin(19200);
+#else
+   LCD = new LiquidCrystal(aRsPin, aEnablePin, aD1, aD2, aD3, aD4);
+   LCD->begin(NUM_LCD_COLS, NUM_LCD_ROWS);
+   LCD->noCursor();
+   LCD->clear();
+   //setColor(BLUE);
+
+#endif
+}
 
 void setColor(color_vars color) {
 	current_color = color;
 }
-
-
-
 
 void doBacklight() {
 #ifdef BACKLIGHT_ACTIVE_LOW  // Uses LOW to turn on an LED
