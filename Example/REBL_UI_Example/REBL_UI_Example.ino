@@ -17,6 +17,7 @@
 #define LCD_D3 3
 #define LCD_D4 7
 
+const int contrast = 20;    // min. PWM value
 //forward declaration for the functions
 boolean fun1();
 boolean pressToExit();
@@ -51,9 +52,15 @@ MenuList menuList(menuItems, menuListSize(menuItems));
 
 
 void setup() {
-  initLCD(LCD_RS_PIN, LCD_ENABLE_PIN, LCD_D1, LCD_D2, LCD_D3, LCD_D4); // New
+initLCD(LCD_RS_PIN, LCD_ENABLE_PIN, LCD_D1, LCD_D2, LCD_D3, LCD_D4); // New
   initInterface(BUTTON_PIN, ENCODER_INTERRUPT_PIN, ENCODER_B_PIN);
   reblMenu.setCurrentMenu(&menuList);
+  pinMode(8,HIGH);  // LCD pin 15: backlight (anode)
+//  pinMode(11,OUTPUT);
+//  analogWrite(11,700);
+  analogWrite(6,contrast); // PWM~ pins: 3,5,(6),9,10,11. LCD pin 3: Vo (supply for LCD driver)
+// Turn on LCD Backlight:
+//    lcd.setLED1Pin(1);
 }
 
 void loop() {
