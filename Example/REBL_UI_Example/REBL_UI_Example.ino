@@ -2,18 +2,19 @@
 #include <LiquidCrystal.h>
 #include <TimeLib.h>
 
+//#define initLCD
 #define ENCODER_INTERRUPT_PIN 2 // MUST keep pin 2.
 #define ENCODER_B_PIN A0
 #define BUTTON_PIN A1
-#define LCD_ENABLE_PIN 3
+#define LCD_ENABLE_PIN 13
 #define LCD_RS_PIN 12
-#define HEART_BEAT_PIN A5
+#define HEART_BEAT_PIN A15
 //#define LCD_BLUE A0
 //#define LCD_GREEN A2
 //#define LCD_RED A4
-#define LCD_D1 4    // New ↓
-#define LCD_D2 5
-#define LCD_D3 6
+#define LCD_D1 5    // New ↓
+#define LCD_D2 4
+#define LCD_D3 3
 #define LCD_D4 7
 
 //forward declaration for the functions
